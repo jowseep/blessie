@@ -32,14 +32,7 @@ public class Sample {
             for(Part x:listOfParts) {
                 System.out.println(x.toString());
             }
-
-            if(listOfParts.isEmpty()) {
-                System.out.println("The ArrayList is empty");
-            } else {
-                for(int j=0; j<listOfParts.size(); j++) {
-                    listOfParts.get(j).toString();
-                }
-            }
+            
             fileInfo.close();
         } catch (FileNotFoundException e) {
             System.out.println(e);
