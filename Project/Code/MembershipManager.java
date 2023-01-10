@@ -10,7 +10,7 @@ public class MembershipManager {
     processInstructions(instructionsFile);
   }
 
-  // Loads member records from a file
+  // This method loads member records from a file
   private void loadMembers(String fileName) throws IOException {
     try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
       String line;
@@ -27,7 +27,7 @@ public class MembershipManager {
     }
   }
 
-  // Processes instructions from a file
+  // This method processes instructions from a file
   private void processInstructions(String fileName) throws IOException {
     try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
       String line;
