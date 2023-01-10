@@ -4,9 +4,9 @@ public class Member {
     birthday, 
     phoneNumber,
     membershipType;
-    private int fee;
+    private double fee;
 
-    public Member(String name, String birthday, String phoneNumber, String membershipType, int fee) {
+    public Member(String name, String birthday, String phoneNumber, String membershipType, double fee) {
         this.name = name;
         this.birthday = birthday;
         this.phoneNumber = phoneNumber;
@@ -46,11 +46,11 @@ public class Member {
         this.membershipType = membershipType;
     }
 
-    public int getFee() {
+    public double getFee() {
         return fee;
     }
 
-    public void setFee(int fee) {
+    public void setFee(double fee) {
         this.fee = fee;
     }
 

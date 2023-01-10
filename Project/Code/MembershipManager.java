@@ -54,15 +54,16 @@ public class MembershipManager {
             System.out.println("Member not found.");
           }
         } else if (command.equals("save")) {
-          saveMembers();
+          // saveMembers();
         }
       }
     }
   }
+}
 
   // Saves member records to a file
-  private void saveMembers() throws IOException {
-    try (BufferedWriter writer = new BufferedWriter(new FileWriter("members.txt"))) {
-      for (Member member : members.values()) {
-        String line = String.format("%s; %s; %s; %s; $%.2f",
-            member.getName(), member.getBirthday(),
+  // private void saveMembers() throws IOException {
+  //   try (BufferedWriter writer = new BufferedWriter(new FileWriter("members.txt"))) {
+  //     for (Member member : members.values()) {
+  //       String line = String.format("%s; %s; %s; %s; $%.2f",
+  //           member.getName(), member.getBirthday(),
