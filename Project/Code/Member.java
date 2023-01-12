@@ -6,11 +6,13 @@ public class Member {
     membershipType;
     private double fee;
 
-    public Member(String name, String birthday, String phoneNumber, String membershipType, double fee) {
+    public Member() {};
+
+    public Member(String name, String birthday, String membershipType, String phoneNumber, double fee) {
         this.name = name;
         this.birthday = birthday;
-        this.phoneNumber = phoneNumber;
         this.membershipType = membershipType;
+        this.phoneNumber = phoneNumber;
         this.fee = fee;
     }
 
@@ -54,6 +56,12 @@ public class Member {
         this.fee = fee;
     }
 
-    
+    public String toString() {
+        return name + 
+                "\n" + birthday +
+                "\n" + phoneNumber +
+                "\n" + membershipType +
+                "\n" + fee;
+    }
 
 }

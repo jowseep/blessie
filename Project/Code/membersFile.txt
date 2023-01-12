@@ -1,16 +1,20 @@
 Taylor Swift
 13/12/1989
-Gold
 04324560
+Gold
+90.0
 Ariana Grande
 03/03/1992
-Silver
 04123455
+Silver
+60.0
 Katy Perry
 21/05/1988
-Bronze
 04176322
+Bronze
+80.0
 Harry Styles
 05/05/1988
-Gold
 04176444
+Gold
+90.0
