@@ -20,8 +20,8 @@ public class HCMMManager {
                 Member member = new Member();
                 member.setName(fileInfo.nextLine());
                 member.setBirthday(fileInfo.nextLine());
-                member.setMembershipType(fileInfo.nextLine());
                 member.setPhoneNumber(fileInfo.nextLine());
+                member.setMembershipType(fileInfo.nextLine());
                 member.setFee(Double.parseDouble(fileInfo.nextLine()));
                 members.add(member);
             }
