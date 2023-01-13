@@ -11,6 +11,7 @@ public class HCMMManager {
 
     //This methods loads the MembersFile and add it into the members ArrayList
     public void loadMembersData(String pathName, ArrayList<Member> members) {
+
         try {
             File filePath = new File(pathName);
             Scanner fileInfo = new Scanner(filePath);
@@ -32,9 +33,12 @@ public class HCMMManager {
     }
 
     public void loadInstructionsFile(String pathName, ArrayList<Member> members) throws FileNotFoundException, IOException {
+
         try (BufferedReader reader = new BufferedReader(new FileReader(pathName))) {
+
             String line;
             while ((line = reader.readLine()) != null) {
+
                 ArrayList<String> word = new ArrayList<>();
                 String[] words = line.trim().split("[;\\s+;]");
       
@@ -49,6 +53,7 @@ public class HCMMManager {
                 }
 
                 if (word.get(0).equals("add")) {
+
                   String name = word.get(2) + " " + word.get(3);
                   String birthday = word.get(5);
                   String pass = word.get(9);
@@ -56,6 +61,7 @@ public class HCMMManager {
                   double fee = Double.parseDouble(word.get(11));  // remove '$' and parse fee
                   Member member = new Member(name, birthday, pass, mobile, fee);
                   members.add(member);
+
                 } else if (word.get(0).equals("delete")) {
                     String name = word.get(1) + " " + word.get(2);
 
@@ -64,10 +70,29 @@ public class HCMMManager {
                             members.remove(i);
                         }
                     }
+
+                } else if (word.get(0).equals("query")) {
+                    if(word.get(1).equals("pass")) {
+                        String passType = word.get(2);
+
+                        switch (passType) {
+                            case "Bronze":
+                                
+                                break;
+                            case "Silver":
+
+                                break;
+                            case "Gold":
+
+                                break;
+                            default:
+                                break;
+                        }
+                    }
                 }
           }
+        }
     }
-}
 
     // This function updates MembersFile
     public void updateMembersFile(String fileName, ArrayList<Member> members) throws FileNotFoundException {
