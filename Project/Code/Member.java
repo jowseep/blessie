@@ -8,7 +8,7 @@ public class Member {
 
     public Member() {};
 
-    public Member(String name, String birthday, String membershipType, String phoneNumber, double fee) {
+    public Member(String name, String birthday, String phoneNumber, String membershipType, double fee) {
         this.name = name;
         this.birthday = birthday;
         this.membershipType = membershipType;

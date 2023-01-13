@@ -1,29 +1,20 @@
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class HCMMMain {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
 
         ArrayList<Member> members = new ArrayList<>();
-        String membersFile = "/Users/josephcallao/Desktop/java/blessie/Project/Code/membersFile.txt";
+        String membersFile = "C:\\Users\\calla\\Desktop\\sample\\eme\\blessie\\Project\\Code\\membersFile.txt";
+        String instructionsFile = "C:\\Users\\calla\\Desktop\\sample\\eme\\blessie\\Project\\Code\\instructionsFile.txt";
+
 
         HCMMManager hcmmManager = new HCMMManager();
         hcmmManager.loadMembersData(membersFile, members);
 
-        String keyword = "Harry";
-
-        for(int i=0; i<members.size(); i++) {
-            if(members.get(i).getName().contains(keyword)) {
-                members.remove(i);
-            }
-        }
-
-        for(Member sumn:members) {
-            System.out.println(sumn.toString());
-        }
-
+        hcmmManager.loadInstructionsFile(instructionsFile, members);
+        
     }
     
-    // String instructionsFile = "C:\\Users\\calla\\Desktop\\sample\\eme\\blessie\\Project\\Code";
 }

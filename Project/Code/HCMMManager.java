@@ -35,29 +35,36 @@ public class HCMMManager {
         try (BufferedReader reader = new BufferedReader(new FileReader(pathName))) {
             String line;
             while ((line = reader.readLine()) != null) {
-              String[] parts = line.split(";");
-              String command = parts[0].trim();
-              if (command.equals("add")) {
-                String name = parts[1].trim();
-                String birthday = parts[2].trim();
-                String pass = parts[3].trim();
-                String mobile = parts[4].trim();
-                double fee = Double.parseDouble(parts[5].trim().substring(1));  // remove '$' and parse fee
-                Member member = new Member(name, birthday, pass, mobile, fee);
-                members.add(member);
-            //   } else if (command.equals("delete")) {
-            //     String mobile = parts[1].trim();
-            //     members.remove(mobile);
-            //   } else if (command.equals("query")) {
-            //     String mobile = parts[1].trim();
-            //     Member member = members.get(mobile);
-            //     if (member != null) {
-            //       System.out.println(member);
-            //     } else {
-            //       System.out.println("Member not found.");
-            //     }
-            //   }
-            }
+                ArrayList<String> word = new ArrayList<>();
+                String[] words = line.trim().split("[;\\s+;]");
+      
+                for(int i=0; i<words.length; i++) {
+                    word.add(words[i]);
+                }
+      
+                for(int i=0; i<word.size(); i++) {
+                    if(word.get(i).equals("")) {
+                        word.remove(word.get(i));
+                    }
+                }
+
+                if (word.get(0).equals("add")) {
+                  String name = word.get(2) + " " + word.get(3);
+                  String birthday = word.get(5);
+                  String pass = word.get(9);
+                  String mobile = word.get(7);
+                  double fee = Double.parseDouble(word.get(11));  // remove '$' and parse fee
+                  Member member = new Member(name, birthday, pass, mobile, fee);
+                  members.add(member);
+                } else if (word.get(0).equals("delete")) {
+                    String name = word.get(1) + " " + word.get(2);
+
+                    for(int i=0; i<members.size(); i++) {
+                        if(members.get(i).getName().equals(name)) {
+                            members.remove(i);
+                        }
+                    }
+                }
           }
     }
 }
@@ -72,5 +79,7 @@ public class HCMMManager {
         }
         output.close();
     }
+
+    // double fee = Double.parseDouble(parts[5].trim().substring(1));  // remove '$' and parse fee
 
 }
