@@ -1,6 +1,7 @@
 public class FreshFruitItem extends Product {
 
     private double weight;
+    private double tax = 0.00;
 
     public FreshFruitItem(String itemName, double initialPrice, double weight) {
         super(itemName, initialPrice);
@@ -8,7 +9,7 @@ public class FreshFruitItem extends Product {
     }
 
     public double getPriceAfterTax() {
-        return getInitialPrice() + (getInitialPrice() * 0.00);
+        return getInitialPrice() + (getInitialPrice() * getTax());
     }
 
     public double getWeight() {
@@ -19,4 +20,7 @@ public class FreshFruitItem extends Product {
         this.weight = weight;
     }
 
+    public double getTax() {
+        return tax;
+    }
 }

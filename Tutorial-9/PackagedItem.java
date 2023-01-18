@@ -2,6 +2,7 @@ public class PackagedItem extends Product {
     
     private int quantityInPackage;
     private String useBy;
+    private double tax = 0.10;
 
     public PackagedItem(String itemName, double initialPrice, int quantityInPackage, String useBy) {
         super(itemName, initialPrice);
@@ -10,7 +11,7 @@ public class PackagedItem extends Product {
     }
 
     public double getPriceAfterTax() {
-        return getInitialPrice() + (getInitialPrice() * 0.10);
+        return getInitialPrice() + (getInitialPrice() * getTax());
     }
 
     public int getQuantityInPackage() {
@@ -25,6 +26,9 @@ public class PackagedItem extends Product {
     public void setUseBy(String useBy) {
         this.useBy = useBy;
     }
-    
+
+    public double getTax() {
+        return tax;
+    }
     
 }
