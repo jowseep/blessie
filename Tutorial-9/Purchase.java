@@ -3,6 +3,9 @@ import java.util.ArrayList;
 public class Purchase {
     
     ArrayList<Product> cart = new ArrayList<>();
+    FreshFruitItem freshFruitItem;
+    PackagedItem packagedItem;
+    UtensilItem utensilItem;
 
     public void addToPurchase(Product product) {
         if(cart.size()>4) {
@@ -12,11 +15,18 @@ public class Purchase {
         }
     }
 
-    public void produceDocket(Product product) {
+    public void produceDocket(Object object) {
         System.out.println("Items Purchased:/n ");
         
         for(int i=0; i<cart.size(); i++) {
-            System.out.println(cart.get(i).getItemName() + " @ " + cart.get(i).getInitialPrice() + " , Tax: " + (cart.get(i).getPriceAfterTax() - cart.get(i).getInitialPrice()) + ", Weight: " + cart.get(i));
+            // System.out.println(cart.get(i).getItemName() + " @ " + cart.get(i).getInitialPrice() + " , Tax: " + (cart.get(i).getPriceAfterTax() - cart.get(i).getInitialPrice()) + ", Weight: " + cart.get(i));
+            if(object.equals(freshFruitItem)) {
+
+            } else if(object.equals(packagedItem)) {
+
+            } else {
+                
+            }
         }
     }
 }
