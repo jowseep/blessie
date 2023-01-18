@@ -12,17 +12,26 @@ public class Purchase {
         }
     }
 
-    public void produceDocket(Object object) {
+    public void produceDocket() {
+        double total = 0;
         System.out.println("Items Purchased:/n ");
         
         for(int i=0; i<cart.size(); i++) {
-            if(object instanceof FreshFruitItem) {
-                System.out.println(cart.get(i).getItemName() + " @ " + cart.get(i).getInitialPrice() + " , Tax: " + (cart.get(i).getPriceAfterTax() - cart.get(i).getInitialPrice()) + ", Weight: " + cart.get(i));
-            } else if(object instanceof PackagedItem) {
-
+            if(cart.get(i) instanceof FreshFruitItem) {
+                FreshFruitItem fresh = (FreshFruitItem) cart.get(i);
+                System.out.println(fresh.getItemName() + " @ " + fresh.getInitialPrice() + " , Tax: " + (fresh.getPriceAfterTax() - cart.get(i).getInitialPrice()) + ", Weight: " + fresh.getWeight());
+                total += fresh.getPriceAfterTax();
+            } else if(cart.get(i) instanceof PackagedItem) {
+                PackagedItem packed = (PackagedItem) cart.get(i);
+                System.out.println(packed.getItemName() + " @ " + packed.getInitialPrice() + " , Tax: " + (packed.getPriceAfterTax() - cart.get(i).getInitialPrice()) + ", Units: " + packed.getQuantityInPackage());
+                total += packed.getPriceAfterTax();
             } else {
-                
+                UtensilItem utensil = (UtensilItem) cart.get(i);
+                System.out.println(utensil.getItemName() + " @ " + utensil.getInitialPrice() + " , Tax: " + (utensil.getPriceAfterTax() - cart.get(i).getInitialPrice()) + ", Material: " + utensil.getMaterialType());
+                total += utensil.getPriceAfterTax();
             }
         }
+
+        System.out.println("Total: " + total);
     }
 }
