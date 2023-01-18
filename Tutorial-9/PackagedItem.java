@@ -3,8 +3,8 @@ public class PackagedItem extends Product {
     private int quantityInPackage;
     private String useBy;
 
-    public PackagedItem(String itemName, double initialPrice, double priceAfterTax, int quantityInPackage, String useBy) {
-        super(itemName, initialPrice, priceAfterTax);
+    public PackagedItem(String itemName, double initialPrice, int quantityInPackage, String useBy) {
+        super(itemName, initialPrice);
         this.quantityInPackage = quantityInPackage;
         this.useBy = useBy;
     }

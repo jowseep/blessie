@@ -4,27 +4,18 @@ public class Product {
     private double initialPrice,
     priceAfterTax;
     
-    public Product(String itemName, double initialPrice, double priceAfterTax) {
+
+    public Product(String itemName, double initialPrice) {
         this.itemName = itemName;
         this.initialPrice = initialPrice;
-        this.priceAfterTax = priceAfterTax;
-
     }
 
     public String getItemName() {
         return itemName;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
-
     public double getInitialPrice() {
         return initialPrice;
-    }
-
-    public void setInitialPrice(double initialPrice) {
-        this.initialPrice = initialPrice;
     }
 
     public double getPriceAfterTax() {
@@ -33,7 +24,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "[ " + getItemName() + ", " + getInitialPrice() + ", " + getPriceAfterTax() + " ]";
+        return getItemName();
     }
     
 }

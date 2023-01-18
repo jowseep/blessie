@@ -2,8 +2,8 @@ public class FreshFruitItem extends Product {
 
     private double weight;
 
-    public FreshFruitItem(String itemName, double initialPrice, double priceAfterTax, double weight) {
-        super(itemName, initialPrice, priceAfterTax);
+    public FreshFruitItem(String itemName, double initialPrice, double weight) {
+        super(itemName, initialPrice);
         this.weight = weight;
     }
 

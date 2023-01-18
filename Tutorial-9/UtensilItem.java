@@ -2,8 +2,8 @@ public class UtensilItem extends Product {
 
     private String materialType;
 
-    public UtensilItem(String itemName, double initialPrice, double priceAfterTax, String materialType) {
-        super(itemName, initialPrice, priceAfterTax);
+    public UtensilItem(String itemName, double initialPrice, String materialType) {
+        super(itemName, initialPrice);
         this.materialType = materialType;
     }
 
