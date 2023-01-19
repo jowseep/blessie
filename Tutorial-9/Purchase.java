@@ -2,9 +2,8 @@ import java.util.ArrayList;
 
 public class Purchase {
     
-    ArrayList<Product> cart = new ArrayList<>();
 
-    public void addToPurchase(Product product) {
+    public void addToPurchase(ArrayList<Product> cart,Product product) {
         if(cart.size()>4) {
             System.out.println("Sorry, you can only purchase 4 items.");
         } else {
@@ -12,9 +11,9 @@ public class Purchase {
         }
     }
 
-    public void produceDocket() {
+    public void produceDocket(ArrayList<Product> cart) {
         double total = 0;
-        System.out.println("Items Purchased:/n ");
+        System.out.println("Items Purchased: ");
         
         for(int i=0; i<cart.size(); i++) {
             if(cart.get(i) instanceof FreshFruitItem) {
