@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 // import java.util.Arrays;
+import java.util.Arrays;
 
 public class MainProgram {
 
@@ -11,11 +12,8 @@ public class MainProgram {
         PackagedItem chocolate = new PackagedItem("Chocolate", 3.5, 1, null);
 
         ArrayList<Product> cart = new ArrayList<>();
-        cart.add(watermelon);
-        cart.add(knife);
-        cart.add(chocolate);
-
-        // ArrayList<Product> cart = (ArrayList<Product>) Arrays.asList(watermelon,knife,chocolate);
+        
+        cart.addAll(Arrays.asList(watermelon, knife, chocolate));
         purchase.produceDocket(cart);
     }
     
