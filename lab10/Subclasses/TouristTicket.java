@@ -17,10 +17,11 @@ public class TouristTicket extends Ticket implements SingleUseTicketing{
     public boolean use() {
         if(isValid) {
             isValid = false;
+            return true;
         } else {
             return false;
         }
-        return isValid;
+       
     }
 
     @Override
