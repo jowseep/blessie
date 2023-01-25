@@ -58,9 +58,20 @@ public class HCMMManager {
                   String birthday = word.get(5);
                   String pass = word.get(9);
                   String mobile = word.get(7);
-                  double fee = Double.parseDouble(word.get(11));  // remove '$' and parse fee
-                  Member member = new Member(name, birthday, pass, mobile, fee);
-                  members.add(member);
+                  double fee = Double.parseDouble(word.get(11));
+
+                    for(Member sumn: members) {
+                        if(sumn.getName().equals(name)) {
+                            sumn.setName(name);
+                            sumn.setBirthday(birthday);
+                            sumn.setPhoneNumber(mobile);
+                            sumn.setFee(fee);
+                            sumn.setMembershipType(pass);
+                        } else {
+                            Member member = new Member(name, birthday, pass, mobile, fee);
+                            members.add(member);
+                        }
+                    }
 
                 } else if (word.get(0).equals("delete")) {
                     String name = word.get(1) + " " + word.get(2);
