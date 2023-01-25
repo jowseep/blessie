@@ -1,0 +1,78 @@
+Create a new package for this week’s activities called lab10.
+
+First we need to define some interfaces, which we will later implement.
+
+1. Create an Interface named SingleUseTicketing. It will need to define the following
+methods:
+
+• use( ) – this method will be called to signify that the ticket is to be used.
+The method should return true if the ticket is valid for use, and false if it is
+not valid for use because of having already been used. The effect of the
+method should be to change the ticket from useable (i.e. valid), to being
+no longer valid in the future.
+
+2. Create an interface named MultiUseTicketing. It will need to define the following
+methods:
+
+• loadUp( amount ) – this method will be called to add a specified amount of
+uses to the ticket (each is called a use-entitlement). For example if the
+parameter is 3, this means the ticket can be used 3 times more than it
+previously could. Thus if the ticket had been fully used-up, it would again
+be available to be used.
+
+• useOnce( ) – this method will be called to signify that the ticket is to be
+used one more time. The method should return true if the ticket is valid
+for use, and false if it is not valid for use because of having expired, i.e.
+having been fully used-up. The effect of the method should be to
+decrease the number of uses that remain for the ticket. For example, if 3
+uses had been loaded onto the ticket, then the first call to useOnce will
+reduce the number to 2.
+
+• getLoadUpCost( amount ) – returns the price required to increase the
+number of remaining uses of the ticket, for the number of uses
+specified.
+
+3. Define an abstract class named Ticket. It should provide the following methods,
+possibly as abstract methods:
+
+• getPurpose( ) – returns a String describing the purpose for which the
+ticket may be used, e.g. to attend a sport match, to attend multiple sport
+matches, to enter the Zoo, etc.
+
+• getCost( ) – returns an amount signifying the cost of obtaining the ticket.
+Note that for single-use ticketing types, this is the same cost as obtaining
+the physical ticket; but for multi-use ticketing types, it is the cost of
+obtaining the physical ticket that can be used on multiple occasions and
+is separate from the cost of entry.
+
+• isValid( ) – returns a boolean value indicating if the ticket is valid for use, or
+not.
+
+4. Create a concrete subclass of Ticket named TouristTicket that implements the
+SingleUseTicketing interface.
+
+• One attribute should be the name of the tourist attraction (e.g. Zoo,
+Water World, etc.)
+
+• Another attribute should be the price of entry to
+the attraction. These attributes should be set in the
+constructor, from parameters. Ensure that the object has a
+suitable initial state.
+
+Ensure that all required methods as specified by the interface or superclass are
+implemented (with bodies).
+
+5. Create a concrete subclass of Ticket named SportSeasonTicket that implements
+the MultiUseTicketing interface. It will need to ensure that the following
+information is stored in attributes:
+
+• The cost of the ticket itself, without any use-entitlements.
+• The cost for each use-entitlement (each entry/admittance to a match), i.e.
+to load 4 admittances onto the ticket may cost $17 each when pre-purchased, whereas the base cost of the ticket itself may be just $5 and is
+charged just once for the whole year.
+• How many times it may be used (the initial number of pre-paid
+admittances the person will be entitled to before needing to load
+more onto their smartticket).
+
+6. Write a driver which creates objects of the concrete class types, and calls
+methods on the objects.

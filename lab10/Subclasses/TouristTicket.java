@@ -2,15 +2,17 @@ package lab10.Subclasses;
 import lab10.Abstract.Ticket;
 import lab10.Interfaces.SingleUseTicketing;
 
-public class TouristTicket extends Ticket implements SingleUseTicketing{
+public class TouristTicket extends Ticket implements SingleUseTicketing {
 
     private String touristAttactionName;
     private double price;
     private boolean isValid = true;
+    private String purpose;
 
-    public TouristTicket(String touristAttactionName, double price) {
+    public TouristTicket(String touristAttactionName, double price, String purpose) {
         this.touristAttactionName = touristAttactionName;
         this.price = price;
+        this.purpose = purpose;
     }
 
     @Override
@@ -26,12 +28,12 @@ public class TouristTicket extends Ticket implements SingleUseTicketing{
 
     @Override
     public String getPurpose() {
-        return "Purpose: Tourist attraction.";
+        return purpose;
     }
 
     @Override
     public double getCost() {
-       return 17.00;
+       return price;
     }
 
     @Override
@@ -41,10 +43,6 @@ public class TouristTicket extends Ticket implements SingleUseTicketing{
 
     public String getTouristAttactionName() {
         return touristAttactionName;
-    }
-
-    public void setTouristAttactionName(String touristAttactionName) {
-        this.touristAttactionName = touristAttactionName;
     }
 
     public double getPrice() {

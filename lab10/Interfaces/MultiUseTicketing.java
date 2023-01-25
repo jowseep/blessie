@@ -6,7 +6,7 @@ public interface MultiUseTicketing {
     public void loadUp(int numberOfUse);
 
     // this method will be called to signify that the ticket is to be used one more time
-    public void useOnce();
+    public boolean useOnce();
 
     // returns the price required to increase the number of remaining uses of the ticket, for the number of uses specified
     public double getLoadUpCost(int numberOfUse);
