@@ -1,3 +1,6 @@
+import java.time.LocalDate;
+import java.time.Period;
+
 public class Member {
 
     private String name, 
@@ -62,6 +65,19 @@ public class Member {
                 "\n" + phoneNumber +
                 "\n" + membershipType +
                 "\n" + fee;
+    }
+
+    // this calculates the date
+    public int getAge() {
+
+        LocalDate dob = LocalDate.parse(birthday);
+        LocalDate dateNow = LocalDate.now();
+
+        if((dob!=null) && (dateNow!=null)) {
+            return Period.between(dob, dateNow).getYears();
+        } else {
+            return 0;
+        }
     }
 
 }

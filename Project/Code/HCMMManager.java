@@ -95,7 +95,33 @@ public class HCMMManager {
                         goldType.forEach(System.out::println);
 
                     } else if(word.get(1).equals("age") && word.get(2).equals("fee")) {
-                        
+                        int totalKidsFee = 0; 
+                        int totalTeensFee = 0; 
+                        int totalAdultsFee = 0;
+                        int totalSeniorsFee = 0;
+                        int unknown = 0;
+
+                        for(Member sumn: members) {
+                            if(sumn.getAge()<=8) {
+                                totalKidsFee+=sumn.getFee();
+                            } else if((sumn.getAge()>8) && (sumn.getAge()<18)) {
+                                totalTeensFee+=sumn.getFee();
+                            } else if((sumn.getAge()>18) && (sumn.getAge()<65)) {
+                                totalAdultsFee+=sumn.getFee();
+                            } else if(sumn.getAge()==65) {
+                                totalSeniorsFee+=sumn.getFee();
+                            } else {
+                                unknown+=sumn.getAge();
+                            }
+                        }
+
+                        System.out.println("Total Club Member size: " + members.size());
+                        System.out.println("Age based fee income distribution");
+                        System.out.println("[0,8]: $" + totalKidsFee);
+                        System.out.println("[8,17]: $" + totalTeensFee);
+                        System.out.println("[18,64]: $" + totalAdultsFee);
+                        System.out.println("[65,-]: $" + totalSeniorsFee);
+                        System.out.println("[Unknown]: $" + unknown);
                     }
                 }
           }

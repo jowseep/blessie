@@ -35,8 +35,8 @@ the results should be appended to reportFile with format as below:
 ----query age fee----
 Total Club Member size: 50
 Age based fee income distribution
-(0,8]: $30.00
-(8,18]: $120.50
+(0,7]: $30.00
+(8,17]: $120.50
 (18,65]: $900.00
 (65,-): $50.50
 Unknown: $0.00
