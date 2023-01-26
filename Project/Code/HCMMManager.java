@@ -5,7 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class HCMMManager {
 
@@ -86,19 +88,14 @@ public class HCMMManager {
                     if(word.get(1).equals("pass")) {
                         String passType = word.get(2);
 
-                        switch (passType) {
-                            case "Bronze":
-                                
-                                break;
-                            case "Silver":
+                        List<Member> goldType = members.stream()
+                        .filter(goldMember -> goldMember.getMembershipType().equals(passType))
+                        .collect(Collectors.toList());
+        
+                        goldType.forEach(System.out::println);
 
-                                break;
-                            case "Gold":
-
-                                break;
-                            default:
-                                break;
-                        }
+                    } else if(word.get(1).equals("age") && word.get(2).equals("fee")) {
+                        
                     }
                 }
           }

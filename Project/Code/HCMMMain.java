@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+// import java.util.List;
+// import java.util.stream.Collectors;
 
 public class HCMMMain {
 
@@ -14,11 +14,11 @@ public class HCMMMain {
         HCMMManager hcmmManager = new HCMMManager();
         hcmmManager.loadMembersData(membersFile, members);
 
-        List<Member> goldType = members.stream()
-            .filter(goldMember -> goldMember.getMembershipType().equals("Gold"))
-            .collect(Collectors.toList());
+        // List<Member> goldType = members.stream()
+        //     .filter(goldMember -> goldMember.getMembershipType().equals("Gold"))
+        //     .collect(Collectors.toList());
         
-       goldType.forEach(System.out::println);
+        // goldType.forEach(System.out::println);
     }
     
 }
