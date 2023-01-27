@@ -34,7 +34,10 @@ public class HCMMManager {
 
     }
 
-    public void loadInstructionsFile(String pathName, ArrayList<Member> members) throws FileNotFoundException, IOException {
+    public void loadInstructionsFile(String pathName, ArrayList<Member> members, String reportFile) throws FileNotFoundException, IOException {
+
+        File fw = new File(reportFile);
+        PrintWriter output = new PrintWriter(fw);
 
         try (BufferedReader reader = new BufferedReader(new FileReader(pathName))) {
 
@@ -62,18 +65,24 @@ public class HCMMManager {
                   String mobile = word.get(7);
                   double fee = Double.parseDouble(word.get(11));
 
-                    for(Member sumn: members) {
-                        if(sumn.getName().equals(name)) {
-                            sumn.setName(name);
-                            sumn.setBirthday(birthday);
-                            sumn.setPhoneNumber(mobile);
-                            sumn.setFee(fee);
-                            sumn.setMembershipType(pass);
-                        } else {
-                            Member member = new Member(name, birthday, pass, mobile, fee);
-                            members.add(member);
-                        }
-                    }
+                  boolean found = false;
+                  int index = 0;
+          
+                  for(int i=0; i<members.size(); i++) {
+                      if((members.get(i).getName().equals(name)) && (members.get(i).getPhoneNumber().equals(mobile))) {
+                          found = true;
+                          index = i;
+                      }
+                  }
+          
+                  if(found==true) {
+                      members.get(index).setBirthday(birthday);
+                      members.get(index).setFee(fee);
+                      members.get(index).setMembershipType(pass);
+                  } else {
+                      Member newMember = new Member(name, birthday, mobile, pass, fee);
+                      members.add(newMember);
+                  }
 
                 } else if (word.get(0).equals("delete")) {
                     String name = word.get(1) + " " + word.get(2);
@@ -92,7 +101,14 @@ public class HCMMManager {
                         .filter(goldMember -> goldMember.getMembershipType().equals(passType))
                         .collect(Collectors.toList());
         
-                        goldType.forEach(System.out::println);
+                        // goldType.forEach(System.out::println);
+
+                        output.print("----------- query pass " + passType + "-----------");
+                        output.println();
+                        for(Member whatevah:goldType) {
+                            output.println(whatevah);
+                        }
+                        output.close();
 
                     } else if(word.get(1).equals("age") && word.get(2).equals("fee")) {
                         int totalKidsFee = 0; 
@@ -115,13 +131,15 @@ public class HCMMManager {
                             }
                         }
 
-                        System.out.println("Total Club Member size: " + members.size());
-                        System.out.println("Age based fee income distribution");
-                        System.out.println("[0,8]: $" + totalKidsFee);
-                        System.out.println("[8,17]: $" + totalTeensFee);
-                        System.out.println("[18,64]: $" + totalAdultsFee);
-                        System.out.println("[65,-]: $" + totalSeniorsFee);
-                        System.out.println("[Unknown]: $" + unknown);
+                        output.print("----------- query age fee-----------");
+                        output.println("Total Club Member size: " + members.size());
+                        output.println("Age based fee income distribution");
+                        output.println("[0,8]: $" + totalKidsFee);
+                        output.println("[8,17]: $" + totalTeensFee);
+                        output.println("[8,17]: $" + totalAdultsFee);                        
+                        output.println("[65,-]: $" + totalSeniorsFee);
+                        output.println("[Unknown]: $" + unknown);
+                        
                     }
                 }
           }
