@@ -13,12 +13,41 @@ public class HCMMMain {
 
         HCMMManager hcmmManager = new HCMMManager();
         hcmmManager.loadMembersData(membersFile, members);
+        // hcmmManager.loadInstructionsFile(instructionsFile, members);
 
         // List<Member> goldType = members.stream()
-        //     .filter(goldMember -> goldMember.getMembershipType().equals("Gold"))
+        //     .filter(goldMember -> goldMember.getMembershipType().equals("Bronze"))
         //     .collect(Collectors.toList());
         
         // goldType.forEach(System.out::println);
+
+        String name = "Queen Tingz";
+        String birthday = "1989-12-13";
+        String mobile = "04191919";
+        String pass = "Silver";
+        double fee = 30.0;
+
+        for(int i=0; i<members.size(); i++) {
+            if ((!members.get(i).getName().equals(name)) && (!members.get(i).getPhoneNumber().equals(mobile)) ) {
+                Member newMember = new Member(name, birthday, mobile, pass, fee);
+                members.add(newMember);
+                // members.get(i).setBirthday(birthday);
+                // members.get(i).setFee(fee);
+                // members.get(i).setMembershipType(pass);
+           
+            } else {
+                // Member newMember = new Member(name, birthday, mobile, pass, fee);
+                // members.add(newMember);
+                members.get(i).setBirthday(birthday);
+                members.get(i).setFee(fee);
+                members.get(i).setMembershipType(pass);
+            } 
+        }
+
+        for (Member mmyeah : members) {
+            System.out.println(mmyeah.toString());
+        }
+
     }
     
 }
