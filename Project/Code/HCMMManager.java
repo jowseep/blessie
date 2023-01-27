@@ -108,7 +108,6 @@ public class HCMMManager {
                         for(Member whatevah:goldType) {
                             output.println(whatevah);
                         }
-                        output.close();
 
                     } else if(word.get(1).equals("age") && word.get(2).equals("fee")) {
                         int totalKidsFee = 0; 
@@ -131,7 +130,7 @@ public class HCMMManager {
                             }
                         }
 
-                        output.print("----------- query age fee-----------");
+                        output.println("----------- query age fee-----------");
                         output.println("Total Club Member size: " + members.size());
                         output.println("Age based fee income distribution");
                         output.println("[0,8]: $" + totalKidsFee);
@@ -144,6 +143,8 @@ public class HCMMManager {
                 }
           }
         }
+
+        output.close();
     }
 
     // This function updates MembersFile
